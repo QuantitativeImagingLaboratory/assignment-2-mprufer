@@ -23,7 +23,9 @@ class resample:
         returns a resized image based on the nearest neighbor interpolation method
         """
 
-        #Write your code for nearest neighbor interpolation here
+        (w,h) = image.size;
+        print (w,h);
+
 
         return image
 
