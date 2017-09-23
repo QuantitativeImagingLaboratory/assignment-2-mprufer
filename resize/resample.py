@@ -25,6 +25,7 @@ class resample:
 
         (w,h) = image.size;
         print (w,h);
+        #nothing woooooorksssss
 
 
         return image
