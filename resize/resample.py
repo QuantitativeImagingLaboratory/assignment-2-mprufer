@@ -61,20 +61,21 @@ class resample:
                 else:
                     (n4x,n4y) = (tempx,tempy-1)
 
+
                 #calculate distances of each neighbor
-                dist1 = (math.sqrt(((n1x-i)**2)+((n1y-j)**2)))
-                dist2 = (math.sqrt(((n2x-i)**2)+((n2y-j)**2)))
-                dist3 = (math.sqrt(((n3x-i)**2)+((n3y-j)**2)))
-                dist4 = (math.sqrt(((n4x-i)**2)+((n4y-j)**2)))
+                dist1 = round(math.sqrt(((n1x-i)**2)+((n1y-j)**2)))
+                dist2 = round(math.sqrt(((n2x-i)**2)+((n2y-j)**2)))
+                dist3 = round(math.sqrt(((n3x-i)**2)+((n3y-j)**2)))
+                dist4 = round(math.sqrt(((n4x-i)**2)+((n4y-j)**2)))
 
                 #find nearest neighbor & assign its intensity to new image
                 nearest = dist1
                 outputImage[i,j] = image[n1x,n1y]
-                if (dist2 < nearest):
+                if (dist2 <= nearest):
                     outputImage[i,j] = image[n2x,n2y]
-                if(dist3 < nearest):
+                if(dist3 <= nearest):
                     outputImage[i,j] = image[n3x,n3y]
-                if(dist4 < nearest):
+                if(dist4 <= nearest):
                     outputImage[i,j] = image[n4x,n4y]
 
         image = outputImage
