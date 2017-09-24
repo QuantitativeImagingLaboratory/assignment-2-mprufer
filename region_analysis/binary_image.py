@@ -20,7 +20,7 @@ class binary_image:
         returns: an optimal threshold value"""
 
         threshold = 0
-
+        print("this is buuulllllshit")
 
         return threshold
 
