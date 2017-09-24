@@ -32,50 +32,65 @@ class resample:
         outputImage = np.zeros([c,b],dtype=np.uint8)
 
         #calculate intensities for new image
-        for i in range(c-1):
-            for j in range(b-1):
-                tempx = int(round(i/float(fx)))
-                tempy = int(round(j/float(fy)))
+        for i in range(0,c):
+            for j in range(0,b):
+                tempx = int((i/float(fx)))
+                tempy = int((j/float(fy)))
 
                 #prevent access to out-of-bound indexes
                 if (tempx >= w):
                     tempx = tempx-1
-                if (tempy == h):
+                if (tempy >= h):
                     tempy = tempy-1
 
                 #prevent assigning values that are out-of-bounds
                 if (tempx+1) >= w:
-                    (n1x,n1y) = (tempx,tempy)
+                    (n1x,n1y) = (None,None)
                 else:
                     (n1x,n1y) = (tempx+1, tempy)
                 if (tempx-1) < 0:
-                    (n2x, n2y) = (tempx, tempy)
+                    (n2x, n2y) = (None, None)
                 else:
                     (n2x, n2y) = (tempx-1, tempy)
                 if (tempy+1) >= h:
-                    (n3x,n3y) = (tempx, tempy)
+                    (n3x,n3y) = (None, None)
                 else:
                     (n3x,n3y) = (tempx,tempy+1)
                 if (tempy-1) < 0:
-                    (n4x,n4y) = (tempx,tempy)
+                    (n4x,n4y) = (None,None)
                 else:
                     (n4x,n4y) = (tempx,tempy-1)
 
 
                 #calculate distances of each neighbor
-                dist1 = round(math.sqrt(((n1x-i)**2)+((n1y-j)**2)))
-                dist2 = round(math.sqrt(((n2x-i)**2)+((n2y-j)**2)))
-                dist3 = round(math.sqrt(((n3x-i)**2)+((n3y-j)**2)))
-                dist4 = round(math.sqrt(((n4x-i)**2)+((n4y-j)**2)))
+                if n1x == None:
+                    dist1 = float('inf')
+                else:
+                    dist1 = (np.sqrt(((i-n1x)**2)+((j-n1y)**2)))
+                if n2x == None:
+                    dist2 = float('inf')
+                else:
+                    dist2 = (np.sqrt(((i-n2x)**2)+((j-n2y)**2)))
+                if n3y == None:
+                    dist3 = float('inf')
+                else:
+                    dist3 = (np.sqrt(((i-n3x)**2)+((j-n3y)**2)))
+                if n4y == None:
+                    dist4 = float('inf')
+                else:
+                    dist4 = (np.sqrt(((i-n4x)**2)+((j-n4y)**2)))
 
                 #find nearest neighbor & assign its intensity to new image
                 nearest = dist1
-                outputImage[i,j] = image[n1x,n1y]
-                if (dist2 <= nearest):
+                if dist1 == float('inf'):
                     outputImage[i,j] = image[n2x,n2y]
-                if(dist3 <= nearest):
+                else:
+                    outputImage[i,j] = image[n1x,n1y]
+                if (dist2 < nearest):
+                    outputImage[i,j] = image[n2x,n2y]
+                if(dist3 < nearest):
                     outputImage[i,j] = image[n3x,n3y]
-                if(dist4 <= nearest):
+                if(dist4 < nearest):
                     outputImage[i,j] = image[n4x,n4y]
 
         image = outputImage
