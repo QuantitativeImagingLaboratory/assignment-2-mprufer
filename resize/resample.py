@@ -32,10 +32,10 @@ class resample:
         outputImage = np.zeros([c,b],dtype=np.uint8)
 
         #calculate intensities for new image
-        for i in range(0,c):
-            for j in range(0,b):
-                tempx = int((i/float(fx)))
-                tempy = int((j/float(fy)))
+        for i in range(c):
+            for j in range(b):
+                tempx = int(round((i/float(fx))))
+                tempy = int(round((j/float(fy))))
 
                 #prevent access to out-of-bound indexes
                 if (tempx >= w):
@@ -48,7 +48,7 @@ class resample:
                     (n1x,n1y) = (None,None)
                 else:
                     (n1x,n1y) = (tempx+1, tempy)
-                if (tempx-1) < 0:
+                if (tempx-1) <= 0:
                     (n2x, n2y) = (None, None)
                 else:
                     (n2x, n2y) = (tempx-1, tempy)
@@ -56,7 +56,7 @@ class resample:
                     (n3x,n3y) = (None, None)
                 else:
                     (n3x,n3y) = (tempx,tempy+1)
-                if (tempy-1) < 0:
+                if (tempy-1) <= 0:
                     (n4x,n4y) = (None,None)
                 else:
                     (n4x,n4y) = (tempx,tempy-1)
@@ -105,6 +105,40 @@ class resample:
         returns a resized image based on the bilinear interpolation method
         """
 
-        # Write your code for bilinear interpolation here
+        (w,h) = image.shape
+        w = w-1
+        h = h-1
+        scalex = float(fx)
+        scaley = float(fy)
+        (c, b) = (int(scalex * w), int(h * scaley))
+        outputImage = np.zeros([c, b], dtype=np.uint8)
+
+        for i in range(c):
+            for j in range(b):
+                if i-1 < 0:
+                    x1 = i
+                else:
+                    x1 = i-1
+                if i+1 > c:
+                    x2 = i
+                else:
+                    x2 = i+1
+                if j-1 < 0:
+                    y1 = j
+                else:
+                    y1 = j-1
+                if j+1 > b:
+                    y2 = j
+                else:
+                    y2 = j+1
+
+                f1 = (((x2-i)/(x2-x1))*image[int(x1/scalex),int(y1/scaley)])+(((i-x1)/(x2-x1))*image[int(x2/scalex),int(y1/scaley)])
+                f2 = (((x2-i)/(x2-x1))*image[int(x1/scalex),int(y2/scaley)])+(((i-x1)/(x2-x1))*image[int(x2/scalex),int(y2/scaley)])
+
+                f3 = (((y2-j)/(y2-y1))*f1)+(((j-y1)/(y2-y1))*f2)
+
+                outputImage[i,j] = int(f3)
+
+        image = outputImage
 
         return image
