@@ -24,6 +24,6 @@ class interpolation:
 
         # Write your code for bilinear interpolation here
 
-        # May be you can reuse or call linear interpolatio method to compute this task
+        # May be you can reuse or call linear interpolation method to compute this task
 
         return 0
