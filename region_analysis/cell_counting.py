@@ -18,12 +18,17 @@ class cell_counting:
                 if image[i,j]==255 and image[i,j-1]==0 and image[i-1,j]==0:
                     regions[i,j]=k
                     k=k+1
+                    print(k)
                 elif image[i,j]==255 and image[i,j-1]==0 and image[i-1,j]==255:
                     regions[i,j] = regions[i-1,j]
                 elif image[i,j]==255 and image[i,j-1]==255 and image[i-1,j]==0:
                     regions[i,j] = regions[i,j-1]
-                elif image[i,j]==255 and image[i,j-1]==255 and image[i-1,j]==255:
+                elif regions[i,j-1]!=regions[i-1,j]:
                     regions[i,j] = regions[i-1,j]
+                    for c in range(w):
+                        for b in range(h):
+                            if regions[c,b] == regions[i,j-1]:
+                                regions[c,b] = regions[i-1,j]
 
         return regions
 
