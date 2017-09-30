@@ -1,3 +1,5 @@
+import numpy as np
+
 class cell_counting:
 
     def blob_coloring(self, image):
@@ -6,7 +8,22 @@ class cell_counting:
         image: binary image
         return: a list of regions"""
 
-        regions = dict()
+        (w,h) = image.shape
+
+        regions = np.zeros([w, h])
+
+        k = 1
+        for i in range(w):
+            for j in range(h):
+                if image[i,j]==255 and image[i,j-1]==0 and image[i-1,j]==0:
+                    regions[i,j]=k
+                    k=k+1
+                elif image[i,j]==255 and image[i,j-1]==0 and image[i-1,j]==255:
+                    regions[i,j] = regions[i-1,j]
+                elif image[i,j]==255 and image[i,j-1]==255 and image[i-1,j]==0:
+                    regions[i,j] = regions[i,j-1]
+                elif image[i,j]==255 and image[i,j-1]==255 and image[i-1,j]==255:
+                    regions[i,j] = regions[i-1,j]
 
         return regions
 
@@ -15,8 +32,6 @@ class cell_counting:
         takes as input
         region: a list of pixels in a region
         returns: area"""
-
-
 
         # Please print your region statistics to stdout
         # <region number>: <location or center>, <area>

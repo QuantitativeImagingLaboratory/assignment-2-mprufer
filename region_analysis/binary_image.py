@@ -9,7 +9,7 @@ class binary_image:
         returns a histogram"""
 
         (w,h) = image.shape
-        hist = [0]*w
+        hist = [0]*1000
         for i in range(w):
             for j in range(h):
                 intensity = image[i,j]
@@ -124,9 +124,9 @@ class binary_image:
         for i in range(w):
             for j in range(h):
                 if image[i,j] < threshold:
-                    image[i,j] = 0
-                if image[i,j] >= threshold:
                     image[i,j] = 255
+                else:
+                    image[i,j] = 0
         bin_img = image.copy()
 
         return bin_img

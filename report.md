@@ -1,3 +1,13 @@
 Nearest Neighbor
 -----------------
-For this method, the first challenge was to find the actual nearest neighbor for the pixel I was just trying to assign an intensity to. I used the distance formula to calculate this. After I wrote that piece, I found that often the algorithm tried to access indexes that were outside of original image's array. This is due to the fact that if the image is, say 254x256, it has indices from 0-254 and 0-255 which should've been obvious but I didn't think of that. So when calculating for the intensities, I had to account for the max index being one less than the actual dimension of the image. The next part was making sure that for each nearest neighbor, it was not a neighbor that again was out-of-bounds. After calculating each distance, each one is compared to find the shortest distance and the pixel with the shortest distance had it's intensity assigned to the new image's pixel. 
+
+
+Bilinear Interpolation
+----------------------
+
+Histogram, Thresholding, Binarizing Image
+-----------------------------------------
+
+
+Region Counting
+-----------------
