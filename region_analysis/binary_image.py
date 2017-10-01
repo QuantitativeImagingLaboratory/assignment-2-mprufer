@@ -9,7 +9,7 @@ class binary_image:
         returns a histogram"""
 
         (w,h) = image.shape
-        hist = [0]*1000
+        hist = [0]*h
         for i in range(w):
             for j in range(h):
                 intensity = image[i,j]
