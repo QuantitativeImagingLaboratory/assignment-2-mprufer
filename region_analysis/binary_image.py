@@ -120,13 +120,20 @@ class binary_image:
                 ex2 += hist[i] * i
             threshold = (ex1 + ex2) / 2
             avg2 = threshold
-
-        for i in range(w):
-            for j in range(h):
-                if image[i,j] < threshold:
-                    image[i,j] = 255
-                else:
-                    image[i,j] = 0
+        if mode1 > threshold:
+            for i in range(w):
+                for j in range(h):
+                    if image[i,j] < threshold:
+                        image[i,j] = 255
+                    else:
+                        image[i,j] = 0
+        if mode1 < threshold:
+            for i in range(w):
+                for j in range(h):
+                    if image[i,j] > threshold:
+                        image[i,j] = 255
+                    else:
+                        image[i,j] = 0
         bin_img = image.copy()
 
         return bin_img

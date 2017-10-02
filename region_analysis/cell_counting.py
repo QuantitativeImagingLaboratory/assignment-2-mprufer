@@ -47,7 +47,8 @@ class cell_counting:
 
         (w,h) = region.shape
         areas_dict = defaultdict(list)
-        num = 0
+        stats_dict = defaultdict(list)
+        wh = 0
         sumx = [0]*1000
         sumy = [0]*1000
         areas = [0]*1000
@@ -57,25 +58,38 @@ class cell_counting:
         for i in range(w):
             for j in range(h):
                 num = int(region[i,j])
-                if not areas_dict:
-                    areas_dict[num].append((i,j))
-                    sumx[num] += i
-                    sumy[num] += j
-                else:
-                    areas_dict[num].append((i,j))
-                    sumx[num] += i
-                    sumy[num] += j
-                if num not in areas:
-                    areas[count] = num
-                    count+=1
+                if int(region[i,j]) > 0:
+                    if not areas_dict:
+                        areas_dict[num].append((i,j))
+                        sumx[num] += i
+                        sumy[num] += j
+                    else:
+                        areas_dict[num].append((i,j))
+                        sumx[num] += i
+                        sumy[num] += j
+                    if num not in areas:
+                        areas[count] = num
+                        count+=1
         for i in range(count+1):
-            print("Region", ":",i,"Area:", len(areas_dict[areas[i]]), "Centroid:", "(", int(sumx[areas[i]]/len(areas_dict[areas[i]])),int(sumy[areas[i]]/len(areas_dict[areas[i]])),")")
+            if len(areas_dict[areas[i]]) > 14:
+                print("Region:", i+1,", Area: ", end="")
+                stats_dict[wh].append(len(areas_dict[areas[i]]))
+                print(str(stats_dict[wh])[1:-1], end="")
+                wh+=1
+                print(", Centroid: (",end="")
+                stats_dict[wh].append(int(sumx[areas[i]]/len(areas_dict[areas[i]])))
+                print(str(stats_dict[wh])[1:-1],end="")
+                wh+=1
+                stats_dict[wh].append(int(sumy[areas[i]]/len(areas_dict[areas[i]])))
+                print(",", str(stats_dict[wh])[1:-1],")")
+                wh+=1
+
 
         # Please print your region statistics to stdout
         # <region number>: <location or center>, <area>
         # print(stats)
 
-        return 0
+        return stats_dict
 
     def mark_regions_image(self, image, stats):
         """Creates a new image with computed stats
@@ -83,5 +97,7 @@ class cell_counting:
         image: a list of pixels in a region
         stats: stats regarding location and area
         returns: image marked with center and area"""
+        count = len(stats)/3
+
         return image
 
