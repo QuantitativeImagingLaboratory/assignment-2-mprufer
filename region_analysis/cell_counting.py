@@ -1,5 +1,10 @@
 import numpy as np
 from collections import defaultdict
+import cv2 as cv
+
+markers = [
+    cv.MARKER_STAR
+]
 
 class cell_counting:
 
@@ -53,7 +58,7 @@ class cell_counting:
         sumy = [0]*1000
         areas = [0]*1000
         count = 0
-        stats = ['']*1000
+        counter = 0
 
         for i in range(w):
             for j in range(h):
@@ -72,7 +77,8 @@ class cell_counting:
                         count+=1
         for i in range(count+1):
             if len(areas_dict[areas[i]]) > 14:
-                print("Region:", i+1,", Area: ", end="")
+                print("Region:", counter+1,", Area: ", end="")
+                counter+=1
                 stats_dict[wh].append(len(areas_dict[areas[i]]))
                 print(str(stats_dict[wh])[1:-1], end="")
                 wh+=1
@@ -84,11 +90,6 @@ class cell_counting:
                 print(",", str(stats_dict[wh])[1:-1],")")
                 wh+=1
 
-
-        # Please print your region statistics to stdout
-        # <region number>: <location or center>, <area>
-        # print(stats)
-
         return stats_dict
 
     def mark_regions_image(self, image, stats):
@@ -97,7 +98,21 @@ class cell_counting:
         image: a list of pixels in a region
         stats: stats regarding location and area
         returns: image marked with center and area"""
+        (w,h) = image.shape
         count = len(stats)/3
-
+        count = int(count)
+        sg = 0
+        fontsize = h/1000
+        for i in range(count):
+            area = int(str(stats[sg])[1:-1])
+            sg+=1
+            pos1 = int(str(stats[sg])[1:-1])
+            sg+=1
+            pos2= int(str(stats[sg])[1:-1])
+            sg+=1
+            region = str(i+1)
+            area = str(area)
+            cv.drawMarker(image, (pos2, pos1),(206,206,182),markerType=cv.MARKER_STAR,markerSize=5,thickness=1,line_type=cv.LINE_AA)
+            cv.putText(image, region+","+area, (pos2+1, pos1), cv.FONT_HERSHEY_SCRIPT_SIMPLEX, fontsize, (182,206,206))
         return image
 

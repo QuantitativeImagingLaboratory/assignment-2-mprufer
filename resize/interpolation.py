@@ -8,7 +8,7 @@ class interpolation:
         unknown: take and unknown location
         return the f(unknown) or intentity at unknown"""
 
-        #Write your code for linear interpolation here
+        #All code written in Nearest Neighbor and Bilinear in resample.py
 
         return 0
 
@@ -22,8 +22,6 @@ class interpolation:
         unknown: take and unknown location
         return the f(unknown) or intentity at unknown"""
 
-        # Write your code for bilinear interpolation here
-
-        # May be you can reuse or call linear interpolation method to compute this task
+        # All code written in Nearest Neighbor and Bilinear in resample.py
 
         return 0
