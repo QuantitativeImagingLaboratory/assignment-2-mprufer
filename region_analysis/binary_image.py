@@ -23,15 +23,15 @@ class binary_image:
         hist: a bimodal histogram
         returns: an optimal threshold value"""
 
-        threshold = 0
-        mode1 = hist.index(max(hist))
-
-        if mode1 == 0:
-            mode2 = hist.index(max(hist[1:]))
         #get the first mode in histogram
+        mode1 = hist.index(max(hist))
+        # if the mode is 0, the only intensities left for the second mode are values >0
+        if mode1 == 0:
+            mode2 = hist.index(max(hist[1:])) #search from intensity index 1 to the end
+        # if the mode is 255, only intensities left for second more are values <255
         elif mode1 == 255:
-            mode2 = hist.index(max(hist[0:mode1]))
-        #find the second mode in histogram
+            mode2 = hist.index(max(hist[0:mode1])) #search for intensities from 0 up until mode1
+        #mode 1 is somewhere between 1-254, so search for the second mode by searching values <mode1 and >mode1
         else:
             tempmode = hist.index(max(hist[0:mode1]))
             tempmode2 = hist.index(max(hist[mode1:]))
@@ -83,9 +83,8 @@ class binary_image:
                 intensity = image[i, j]
                 hist[intensity] += 1
 
-        threshold = 0
-        mode1 = hist.index(max(hist))
         #find threshold
+        mode1 = hist.index(max(hist))
         if mode1 == 0:
             mode2 = hist.index(max(hist[1:]))
         elif mode1 == 255:
@@ -97,18 +96,15 @@ class binary_image:
                 mode2 = tempmode
             else:
                 mode2 = tempmode2
-
         if mode1 > mode2:
             temp = mode1
             mode1 = mode2
             mode2 = temp
-
         threshold = (mode1 + mode2) / 2
         avg1 = 0
         avg2 = 1
         end = len(hist)
         total = 0
-
         for i in range(end):
             total += hist[i]
         for i in range(end):
@@ -123,15 +119,16 @@ class binary_image:
                 ex2 += hist[i] * i
             threshold = (ex1 + ex2) / 2
             avg2 = threshold
+
         #binarize image
-        if mode1 > threshold:
+        if mode1 > threshold: #binarize image that has light objects against dark background
             for i in range(w):
                 for j in range(h):
                     if image[i,j] < threshold:
                         image[i,j] = 255
                     else:
                         image[i,j] = 0
-        if mode1 < threshold:
+        if mode1 < threshold: #binarize image that has dark objects against light background
             for i in range(w):
                 for j in range(h):
                     if image[i,j] > threshold:

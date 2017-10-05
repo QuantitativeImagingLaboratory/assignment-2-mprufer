@@ -15,10 +15,9 @@ class cell_counting:
         return: a list of regions"""
 
         (w,h) = image.shape
-
         regions = np.zeros([w, h])
+        k = 1 #region counter
 
-        k = 1
         for i in range(w):
             for j in range(h):
                 #if index out of image range, define as 0
@@ -39,6 +38,8 @@ class cell_counting:
                     if regions[i,j-1]!=regions[i-1,j]:
                         c=0
                         b=0
+                        #iterate through image (up until current index)
+                        #for every pixel with previous region number, change to new region number
                         for c in range(w):
                             for b in range(h):
                                 if regions[c,b]==regions[i,j-1]:
@@ -67,10 +68,12 @@ class cell_counting:
             for j in range(h):
                 num = int(region[i,j])
                 if int(region[i,j]) > 0:
+                    #encounters new region that hasn't been logged yet
                     if not areas_dict:
                         areas_dict[num].append((i,j))
                         sumx[num] += i
                         sumy[num] += j
+                    #logs index into its region's list
                     else:
                         areas_dict[num].append((i,j))
                         sumx[num] += i
@@ -92,7 +95,7 @@ class cell_counting:
                 wh+=1
                 stats_dict[wh].append(int(sumy[areas[i]]/len(areas_dict[areas[i]])))
                 print(",", str(stats_dict[wh])[1:-1],")")
-                wh+=1
+                wh+=1 #append one last time to move on to next region's statistic
 
         return stats_dict
 
@@ -105,8 +108,8 @@ class cell_counting:
         (w,h) = image.shape
         count = len(stats)/3 #each region has 3 stats; must divide by 3 to get total number of regions
         count = int(count)
-        sg = 0
-        fontsize = h/1000
+        sg = 0 #iterator to properly get each ergion's statistic
+        fontsize = h/1000 #define font size according to image size
         #increment by region number (not by actual number of indices in stats)
         for i in range(count):
             area = int(str(stats[sg])[1:-1])

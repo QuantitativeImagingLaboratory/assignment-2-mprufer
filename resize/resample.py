@@ -31,7 +31,7 @@ class resample:
         (c,b) = (int(scalex*w), int(h*scaley))
         outputImage = np.zeros([c,b],dtype=np.uint8)
 
-        #calculate intensities for new image
+        #calculate intensities for new image by using nearest neighbor
         for i in range(c):
             for j in range(b):
                 outputImage[i,j] = image[int(i/scalex), int(j/scaley)]
@@ -58,6 +58,8 @@ class resample:
 
         for i in range(c):
             for j in range(b):
+                #define region boundaries properly
+                #if neighbor is outside of the image, assign it 0
                 if i-1 < 0:
                     x1 = i
                 else:
@@ -75,11 +77,12 @@ class resample:
                 else:
                     y2 = j+1
 
+                #find interpolation of x-coordinates
                 f1 = (((x2-i)/(x2-x1))*image[int(x1/scalex),int(y1/scaley)])+(((i-x1)/(x2-x1))*image[int(x2/scalex),int(y1/scaley)])
                 f2 = (((x2-i)/(x2-x1))*image[int(x1/scalex),int(y2/scaley)])+(((i-x1)/(x2-x1))*image[int(x2/scalex),int(y2/scaley)])
-
+                #find interpolation of y-coordinates & get final intensity for pixel in new image
                 f3 = (((y2-j)/(y2-y1))*f1)+(((j-y1)/(y2-y1))*f2)
-
+                #assign pixel intensity
                 outputImage[i,j] = int(f3)
 
         image = outputImage
