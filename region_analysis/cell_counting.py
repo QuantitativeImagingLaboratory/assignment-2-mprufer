@@ -1,7 +1,7 @@
 import numpy as np
 from collections import defaultdict
 import cv2 as cv
-
+#define markers
 markers = [
     cv.MARKER_STAR
 ]
@@ -21,10 +21,12 @@ class cell_counting:
         k = 1
         for i in range(w):
             for j in range(h):
+                #if index out of image range, define as 0
                 if j-1 < 0:
                     image[i,j-1] = 0
                 if i-1 < 0:
                     image[i-1,j] = 0
+                #perform blob coloring
                 if image[i,j]>0 and image[i,j-1]==0 and image[i-1,j]==0:
                     regions[i,j]=int(k)
                     k=k+1
@@ -59,7 +61,8 @@ class cell_counting:
         areas = [0]*1000
         count = 0
         counter = 0
-
+        #make a list for each region consiting of the indices belonging to it
+        #keep a sum of the x and y-coordinates to help calculate the cetroid
         for i in range(w):
             for j in range(h):
                 num = int(region[i,j])
@@ -72,16 +75,17 @@ class cell_counting:
                         areas_dict[num].append((i,j))
                         sumx[num] += i
                         sumy[num] += j
+                    #counting the number of pixels in each region to get the area
                     if num not in areas:
                         areas[count] = num
                         count+=1
         for i in range(count+1):
             if len(areas_dict[areas[i]]) > 14:
                 print("Region:", counter+1,", Area: ", end="")
-                counter+=1
-                stats_dict[wh].append(len(areas_dict[areas[i]]))
+                counter+=1 #to ensure printing of correct region number
+                stats_dict[wh].append(len(areas_dict[areas[i]])) #append to stats to be passed on to mark_regions_image
                 print(str(stats_dict[wh])[1:-1], end="")
-                wh+=1
+                wh+=1 #increment stats to append statistic specific to this region
                 print(", Centroid: (",end="")
                 stats_dict[wh].append(int(sumx[areas[i]]/len(areas_dict[areas[i]])))
                 print(str(stats_dict[wh])[1:-1],end="")
@@ -99,16 +103,17 @@ class cell_counting:
         stats: stats regarding location and area
         returns: image marked with center and area"""
         (w,h) = image.shape
-        count = len(stats)/3
+        count = len(stats)/3 #each region has 3 stats; must divide by 3 to get total number of regions
         count = int(count)
         sg = 0
         fontsize = h/1000
+        #increment by region number (not by actual number of indices in stats)
         for i in range(count):
             area = int(str(stats[sg])[1:-1])
+            sg+=1 #increment stats to get the next statistic in this region
+            pos1 = int(str(stats[sg])[1:-1]) #get the x-coordinate of the centroid
             sg+=1
-            pos1 = int(str(stats[sg])[1:-1])
-            sg+=1
-            pos2= int(str(stats[sg])[1:-1])
+            pos2= int(str(stats[sg])[1:-1]) #get the y-coordinate of the centroid
             sg+=1
             region = str(i+1)
             area = str(area)

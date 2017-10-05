@@ -28,8 +28,10 @@ class binary_image:
 
         if mode1 == 0:
             mode2 = hist.index(max(hist[1:]))
+        #get the first mode in histogram
         elif mode1 == 255:
             mode2 = hist.index(max(hist[0:mode1]))
+        #find the second mode in histogram
         else:
             tempmode = hist.index(max(hist[0:mode1]))
             tempmode2 = hist.index(max(hist[mode1:]))
@@ -37,23 +39,24 @@ class binary_image:
                 mode2 = tempmode
             else:
                 mode2 = tempmode2
-
+        #defining mode 1 as the lower mode and mode 2 as the higher mode
         if mode1 > mode2:
             temp = mode1
             mode1 = mode2
             mode2 = temp
 
-        largest = hist[mode2]
         threshold = (mode1+mode2)/2
         avg1 = 0
         avg2 = 1
         end = len(hist)
         total=0
-
+        #get the total number of pixels counted in the histogram
         for i in range(end):
             total += hist[i]
+        #get the rate for each value in histogram
         for i in range(end):
             hist[i] = hist[i]/total
+        #find threshold while the averages keep changing with a new threshold
         while avg1 != avg2:
             ex1 = 0
             ex2 = 0
@@ -72,6 +75,7 @@ class binary_image:
         take as input
         image: an grey scale image
         returns: a binary image"""
+        #get histogram
         (w, h) = image.shape
         hist = [0] * w
         for i in range(w):
@@ -81,7 +85,7 @@ class binary_image:
 
         threshold = 0
         mode1 = hist.index(max(hist))
-
+        #find threshold
         if mode1 == 0:
             mode2 = hist.index(max(hist[1:]))
         elif mode1 == 255:
@@ -99,7 +103,6 @@ class binary_image:
             mode1 = mode2
             mode2 = temp
 
-        largest = hist[mode2]
         threshold = (mode1 + mode2) / 2
         avg1 = 0
         avg2 = 1
@@ -120,6 +123,7 @@ class binary_image:
                 ex2 += hist[i] * i
             threshold = (ex1 + ex2) / 2
             avg2 = threshold
+        #binarize image
         if mode1 > threshold:
             for i in range(w):
                 for j in range(h):
