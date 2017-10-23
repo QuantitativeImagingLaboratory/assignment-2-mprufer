@@ -44,12 +44,22 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+<<<<<<< HEAD
             python dip_hw1_resize.py -i cell2.jpg -fx 0.75 -fy 0.75 -m nearest_neighbor > output/resize/1/output1.txt
             python dip_hw1_resize.py -i cell2.jpg -fx 0.5 -fy 0.5 -m bilinear > output/resize/1/output2.txt
             python dip_hw1_resize.py -i cells.png -fx 0.75 -fy 0.75 -m nearest_neighbor > output/resize/2/output1.txt
             python dip_hw1_resize.py -i cells.png -fx 0.5 -fy 0.5 -m bilinear > output/resize/2/output2.txt
             python dip_hw1_region_analysis.py -i cell2.jpg > output/cellct/1/output.txt
             python dip_hw1_region_analysis.py -i cells.png  > output/cellct/2/output.txt
+=======
+            python dip_hw2_dft.py > output/dft_output.txt
+            python dip_hw2_filter.py -i Lenna0.jpg -m ideal_l -c 75
+            python dip_hw2_filter.py -i Lenna.png -m ideal_h -c 125
+            python dip_hw2_filter.py -i Lenna0.jpg -m butterworth_l -c 75 -o 2
+            python dip_hw2_filter.py -i Lenna.png -m butterworth_h -c 125 -o 2
+            python dip_hw2_filter.py -i Lenna0.jpg -m gaussian_l -c 75
+            python dip_hw2_filter.py -i Lenna.png -m gaussian_h -c 125
+>>>>>>> 0f4dda1d1ede9d8db92d4195d4ef3f1b14912f91
             mkdir /home/circleci/repo/test-reports
             mv -f \output/ /home/circleci/repo/test-reports
 

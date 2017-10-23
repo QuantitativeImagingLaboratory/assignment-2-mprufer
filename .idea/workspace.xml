@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c7c29a0-daa7-4328-a7e6-cd3ef95aafd4" name="Default" comment="" />
+    <list default="true" id="3c7c29a0-daa7-4328-a7e6-cd3ef95aafd4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lenna.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lenna0.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DFT/DFT.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DFT/Filtering.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dip_hw2_dft.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dip_hw2_filter.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/output/dft_output.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cell2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cell3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cells.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dip_hw1_region_analysis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dip_hw1_resize.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/1/ouput.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/2/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/binary_image_1005-151704.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/binary_image_1005-151737.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/binary_image_1008-221220.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/binary_image_1008-221312.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/cell_stats_1005-151712.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/cell_stats_1005-152643.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/cell_stats_1008-221228.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/cell_stats_1008-222154.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/cellct/hist.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/1/output1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/1/output2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/2/output1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/2/output2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cell2bilinear1005-151646.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cell2bilinear1008-223111.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cell2nearest_neighbor1005-151534.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cell2nearest_neighbor1008-222947.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cellsbilinear1005-151518.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cellsbilinear1008-222926.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cellsnearest_neighbor1005-151458.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/resize/cellsnearest_neighbor1008-222912.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/region_analysis/binary_image.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/region_analysis/cell_counting.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resize/interpolation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resize/resample.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/result.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.circleci/config.yml" afterPath="$PROJECT_DIR$/.circleci/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report.md" afterPath="$PROJECT_DIR$/report.md" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,43 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dip_hw1_region_analysis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dip_hw1_region_analysis.py">
+      <file leaf-file-name="DFT.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DFT/DFT.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resample.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resize/resample.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="33" column="70" lean-forward="false" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interpolation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resize/interpolation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="74" lean-forward="false" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cell_counting.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/region_analysis/cell_counting.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="-161">
+              <caret line="24" column="124" lean-forward="false" selection-start-line="24" selection-start-column="124" selection-end-line="24" selection-end-column="124" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -56,12 +70,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binary_image.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py">
+      <file leaf-file-name="dip_hw2_dft.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dip_hw2_dft.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="133" column="46" lean-forward="false" selection-start-line="133" selection-start-column="46" selection-end-line="133" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="-137">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#209#219#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
             </state>
           </provider>
         </entry>
@@ -84,12 +115,14 @@
         <option value="$PROJECT_DIR$/region_analysis/binary_image.py" />
         <option value="$PROJECT_DIR$/region_analysis/cell_counting.py" />
         <option value="$PROJECT_DIR$/resize/resample.py" />
+        <option value="$PROJECT_DIR$/DFT/DFT.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="466" />
     <option name="y" value="23" />
-    <option name="width" value="855" />
+    <option name="width" value="1212" />
     <option name="height" value="819" />
   </component>
   <component name="ProjectView">
@@ -118,17 +151,12 @@
             <path>
               <item name="github" type="b2602c69:ProjectViewProjectNode" />
               <item name="github" type="462c0819:PsiDirectoryNode" />
+              <item name="DFT" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="github" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="github" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github" type="462c0819:PsiDirectoryNode" />
-              <item name="region_analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="github" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github" type="462c0819:PsiDirectoryNode" />
-              <item name="resize" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -154,7 +182,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dip_hw1_region_analysis">
+  <component name="RunManager" selected="Python.dip_hw2_dft">
+    <configuration name="DFT" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DFT" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="github" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DFT/DFT.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="binary_image" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -206,35 +251,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="resample" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dip_hw2_dft" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/miniconda3/envs/myenv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resize" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="github" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/resize/resample.py" />
-      <option name="PARAMETERS" value="'-i cells.png' '-fx 1.5' '-fy 1.5' '-m nearest_neighbor'" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dip_hw2_dft.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.resample" />
-      <item index="1" class="java.lang.String" itemvalue="Python.dip_hw1_resize" />
-      <item index="2" class="java.lang.String" itemvalue="Python.dip_hw1_region_analysis" />
-      <item index="3" class="java.lang.String" itemvalue="Python.binary_image" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.dip_hw1_resize" />
+      <item index="1" class="java.lang.String" itemvalue="Python.dip_hw1_region_analysis" />
+      <item index="2" class="java.lang.String" itemvalue="Python.binary_image" />
+      <item index="3" class="java.lang.String" itemvalue="Python.DFT" />
+      <item index="4" class="java.lang.String" itemvalue="Python.dip_hw2_dft" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.dip_hw1_region_analysis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.binary_image" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dip_hw1_resize" />
-        <item index="3" class="java.lang.String" itemvalue="Python.resample" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.dip_hw2_dft" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DFT" />
+        <item index="2" class="java.lang.String" itemvalue="Python.dip_hw1_region_analysis" />
+        <item index="3" class="java.lang.String" itemvalue="Python.binary_image" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dip_hw1_resize" />
       </list>
     </recent_temporary>
   </component>
@@ -252,18 +299,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="855" height="819" extended-state="0" />
-    <editor active="true" />
+    <frame x="466" y="23" width="1212" height="819" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.31191432" sideWeight="0.2005457" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32931727" sideWeight="0.7994543" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32931727" sideWeight="0.7994543" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14736842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10313531" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -305,48 +351,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-          <folding>
-            <element signature="e#307#317#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resize/resample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="117" column="21" lean-forward="true" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dip_hw1_region_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#307#317#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py" />
+    <entry file="file://$PROJECT_DIR$/resize/resample.py" />
+    <entry file="file://$PROJECT_DIR$/dip_hw1_region_analysis.py" />
+    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -360,22 +374,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result.png">
+    <entry file="file://$PROJECT_DIR$/result.png" />
+    <entry file="file://$PROJECT_DIR$/cells.png" />
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013214.jpg" />
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013058.jpg" />
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013225.jpg" />
+    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013320.jpg" />
+    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py" />
+    <entry file="file://$PROJECT_DIR$/dip_hw1_region_analysis.py" />
+    <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py" />
+    <entry file="file://$PROJECT_DIR$/region_analysis/cell_counting.py" />
+    <entry file="file://$PROJECT_DIR$/binary.jpg" />
+    <entry file="file://$PROJECT_DIR$/resize/interpolation.py" />
+    <entry file="file://$PROJECT_DIR$/resize/resample.py" />
+    <entry file="file://$PROJECT_DIR$/Lenna.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="75">
-            <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor>
@@ -383,71 +404,29 @@
           </second_editor>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cells.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013214.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013058.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013225.jpg" />
-    <entry file="file://$PROJECT_DIR$/output/cellct/cell_stats_0923-013320.jpg" />
-    <entry file="file://$PROJECT_DIR$/dip_hw1_resize.py">
+    <entry file="file://$PROJECT_DIR$/dip_hw2_dft.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+        <state relative-caret-position="-137">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#307#317#0" expanded="false" />
+            <element signature="e#209#219#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dip_hw1_region_analysis.py">
+    <entry file="file://$PROJECT_DIR$/DFT/DFT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region_analysis/binary_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="133" column="46" lean-forward="false" selection-start-line="133" selection-start-column="46" selection-end-line="133" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region_analysis/cell_counting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        <state relative-caret-position="-161">
+          <caret line="24" column="124" lean-forward="false" selection-start-line="24" selection-start-column="124" selection-end-line="24" selection-end-column="124" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/binary.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resize/interpolation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="74" lean-forward="false" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resize/resample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="33" column="70" lean-forward="false" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
