@@ -14,7 +14,6 @@ class DFT:
         returns a complex matrix representing fourier transform"""
         w,h=matrix.shape
 
-
         beta = [[0 for x in range(w)] for y in range(h)]
 
         for a in range(h):
@@ -22,10 +21,10 @@ class DFT:
                 asum = 0
                 for i in range(h):
                     for j in range(w):
-                        asum += matrix[i][j]*((cm.cos(((2*cm.pi)/w)*(a*i+b*j)))-cm.sqrt(-1)*cm.sin(((2*cm.pi)/w)*(a*i+b*j)))
-                gyu = float('%.3f'%(asum.real))
-                nam = float('%.3f'%(asum.imag))
-                beta[a][b] = gyu+nam*1j
+                        asum += matrix[i][j]*((cm.cos(((2*cm.pi)/w)*(a*i+b*j)))-(cm.sqrt(-1)*cm.sin(((2*cm.pi)/w)*(a*i+b*j))))
+                real = float('%.3f'%(asum.real))
+                comp = float('%.3f'%(asum.imag))
+                beta[a][b] = real+comp*1j
 
         return beta
 
@@ -35,9 +34,19 @@ class DFT:
         takes as input:
         returns a complex matrix representing the inverse fourier transform"""
 
+        beta = [[0 for x in range(15)] for y in range(15)]
 
+        for i in range(15):
+            for j in range (15):
+                asum = 0
+                for u in range(15):
+                    for v in range(15):
+                        asum+=matrix[u][v]*((cm.cos((2*cm.pi/15)*(u*i+v*j)))+(cm.sqrt(-1)*cm.sin((2*cm.pi/15)*(u*i+v*j))))
+                real = float('%.3f' % (asum.real))
+                comp = float('%.3f' % (asum.imag))
+                beta[i][j] = real+comp*1j
 
-        return matrix
+        return beta
 
 
     def discrete_cosine_tranform(self, matrix):
