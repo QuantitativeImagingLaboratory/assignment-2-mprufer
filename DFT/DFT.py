@@ -54,10 +54,19 @@ class DFT:
         takes as input:
         matrix: a 2d matrix
         returns a matrix representing discrete cosine transform"""
+        w, h = matrix.shape
 
+        beta = [[0 for x in range(w)] for y in range(h)]
 
+        for a in range(h):
+            for b in range(w):
+                asum = 0
+                for i in range(h):
+                    for j in range(w):
+                        asum += matrix[i][j] * (cm.cos(((2 * cm.pi) / w) * (a * i + b * j)))
+                beta[a][b] = float('%.3f' % (asum.real))
 
-        return matrix
+        return beta
 
 
     def magnitude(self, matrix):
@@ -65,5 +74,10 @@ class DFT:
         takes as input:
         matrix: a 2d matrix
         returns a matrix representing magnitude of the dft"""
+        beta = [[0 for x in range(15)] for y in range(15)]
 
-        return matrix
+        for a in range(15):
+            for b in range(15):
+                asum = matrix[a][b]
+                beta[a][b] = abs(matrix[a][b])
+        return beta
