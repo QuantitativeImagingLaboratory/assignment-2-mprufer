@@ -135,7 +135,6 @@ class Filtering:
 
         amax = 0
         amin = 0
-
         w,h = image.shape
 
         fullimage = [[0 for x in range(h)] for y in range (w)]
@@ -149,7 +148,8 @@ class Filtering:
 
         for i in range(h):
             for j in range(w):
-                fullimage[i][j] = int(round(255/(amax-amin)*(image[i][j]-1)+0.5))
+                fullimage[i][j] = round(255/(amax-amin)*(image[i][j]-1)+0.5)
+
 
         u8image = np.array(fullimage, dtype=np.uint8)
         return u8image
@@ -179,6 +179,7 @@ class Filtering:
 
         #shift the fft to center
         fshift = np.fft.fftshift(fwd)
+        mag = self.post_process_image(np.log(np.absolute(fwd)))
 
         #get the mask
         arg = str(self.filter)
@@ -187,16 +188,13 @@ class Filtering:
 
         #filter image
         filimage = fshift*mask
+        mag2 = mag*mask
 
         #compute inverse shift
         sfilimage = np.fft.fftshift(filimage)
 
         #compute inverse
         invimage = np.fft.ifft2(sfilimage)
-        finimage = self.post_process_image(invimage.real)
-
-        #compute magnitude
-        mag = abs(fwd)
-        mag2 = abs(filimage)
+        finimage = self.post_process_image(np.absolute(invimage))
 
         return [finimage, mag, mag2]
