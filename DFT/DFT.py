@@ -16,20 +16,14 @@ class DFT:
         w,h=matrix.shape
 
         beta = [[0 for x in range(w)] for y in range(h)]
-        alpha = [[0 for x in range(w)] for y in range(h)]
-        alpha[0][0] = 1
-        alpha[0][1] = 2
-        alpha[0][2] = 3
-        alpha[1][0] = 4
-        alpha[1][1] = 5
-        alpha[1][2] = 6
-        for a in range(2):
-            for b in range(3):
+
+        for a in range(15):
+            for b in range(15):
                 asum = 0
-                for i in range(2):
-                    for j in range(3):
-                        asum += alpha[i][j]*((np.cos(((2*np.pi)/3)*(a*i+b*j)))
-                                             -(1j*np.sin(((2*np.pi)/3)*(a*i+b*j))))
+                for i in range(15):
+                    for j in range(15):
+                        asum += matrix[i][j]*((np.cos(((2*np.pi)/15)*(a*i+b*j)))
+                                             -(1j*np.sin(((2*np.pi)/15)*(a*i+b*j))))
                 real = float('%.3f'%(asum.real))
                 comp = float('%.3f'%(asum.imag))
                 beta[a][b] = real+comp*1j
@@ -43,13 +37,13 @@ class DFT:
 
         beta = [[0 for x in range(15)] for y in range(15)]
 
-        for i in range(2):
-            for j in range (3):
+        for i in range(15):
+            for j in range (15):
                 asum = 0
-                for u in range(2):
-                    for v in range(3):
-                        asum+=matrix[u][v]*((np.cos((2*np.pi/3)*(u*i+v*j)))
-                                            +(1j*np.sin((2*np.pi/3)*(u*i+v*j))))
+                for u in range(15):
+                    for v in range(15):
+                        asum+=matrix[u][v]*((np.cos((2*np.pi/15)*(u*i+v*j)))
+                                            +(1j*np.sin((2*np.pi/15)*(u*i+v*j))))
                 real = float('%.3f' % (asum.real))
                 comp = float('%.3f' % (asum.imag))
                 beta[i][j] = real+comp*1j
@@ -70,7 +64,7 @@ class DFT:
                 asum = 0
                 for i in range(h):
                     for j in range(w):
-                        asum += matrix[i][j] * (np.cos(((2 * np.pi) / w)*(a*i+b*j)))
+                        asum += matrix[i][j]*(np.cos(((2 * np.pi)/w)*(a*i+b*j)))
                 beta[a][b] = float('%.3f' % (asum.real))
 
         return beta
@@ -82,9 +76,7 @@ class DFT:
         matrix: a 2d matrix
         returns a matrix representing magnitude of the dft"""
         beta = [[0 for x in range(15)] for y in range(15)]
-
         for a in range(15):
             for b in range(15):
-                asum = matrix[a][b]
                 beta[a][b] = abs(matrix[a][b])
         return beta

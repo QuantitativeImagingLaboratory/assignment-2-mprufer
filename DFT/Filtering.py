@@ -1,3 +1,5 @@
+import numpy as np
+
 # For this part of the assignment, You can use inbuilt functions to compute the fourier transform
 # You are welcome to use fft that are available in numpy and opencv
 
@@ -40,9 +42,21 @@ class Filtering:
         shape: the shape of the mask to be generated
         cutoff: the cutoff frequency of the ideal filter
         returns a ideal low pass mask"""
+        w,h = shape
 
+        mask = [[0 for x in range(h)]for y in range(w)]
+        c = h/2
+        r = w/2
 
-        return 0
+        for i in range(h):
+            for j in range(w):
+                dist = np.sqrt((i-c)**2+(j-r)**2)
+                if dist <= cutoff:
+                    mask[i][j] = 1
+                else:
+                    mask[i][j] = 0
+
+        return mask
 
 
     def get_ideal_high_pass_filter(self, shape, cutoff):
@@ -52,10 +66,16 @@ class Filtering:
         cutoff: the cutoff frequency of the ideal filter
         returns a ideal high pass mask"""
 
-        #Hint: May be one can use the low pass filter function to get a high pass mask
+        mask = self.get_ideal_low_pass_filter(shape,cutoff)
+        w,h = shape
+        newmask = [[0 for x in range(h)] for y in range(w)]
 
-        
-        return 0
+        for i in range(h):
+            for j in range(w):
+                newmask[i][j] = 1 -mask[i][j]
+
+
+        return newmask
 
     def get_butterworth_low_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth low pass mask
@@ -113,8 +133,26 @@ class Filtering:
         2. take negative (255 - fsimage)
         """
 
+        amax = 0
+        amin = 0
 
-        return image
+        w,h = image.shape
+
+        fullimage = [[0 for x in range(h)] for y in range (w)]
+
+        for i in range(h):
+            for j in range(w):
+                if image[i][j] < amin:
+                    amin = image[i][j]
+                if image[i][j] > amax:
+                    amax = image[i][j]
+
+        for i in range(h):
+            for j in range(w):
+                fullimage[i][j] = int(round(255/(amax-amin)*(image[i][j]-1)+0.5))
+
+        u8image = np.array(fullimage, dtype=np.uint8)
+        return u8image
 
 
     def filtering(self):
@@ -136,8 +174,29 @@ class Filtering:
         Note: You do not have to do zero padding as discussed in class, the inbuilt functions takes care of that
         filtered image, magnitude of DFT, magnitude of filtered DFT: Make sure all images being returned have grey scale full contrast stretch and dtype=uint8 
         """
+        #computing fft of image
+        fwd = np.fft.fft2(self.image)
 
+        #shift the fft to center
+        fshift = np.fft.fftshift(fwd)
 
+        #get the mask
+        arg = str(self.filter)
+        if arg.find("ideal_low") or arg.find("ideal_high") or arg.find("gaussian_low") or arg.find("gaussian_high"):
+            mask = self.filter(self.image.shape, self.cutoff)
 
+        #filter image
+        filimage = fshift*mask
 
-        return [self.image, self.image, self.image]
+        #compute inverse shift
+        sfilimage = np.fft.fftshift(filimage)
+
+        #compute inverse
+        invimage = np.fft.ifft2(sfilimage)
+        finimage = self.post_process_image(invimage.real)
+
+        #compute magnitude
+        mag = abs(fwd)
+        mag2 = abs(filimage)
+
+        return [finimage, mag, mag2]
