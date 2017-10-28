@@ -85,8 +85,17 @@ class Filtering:
         order: the order of the butterworth filter
         returns a butterworth low pass mask"""
 
+        w,h = shape
+        c = h / 2
+        r = w / 2
+        newmask = [[0 for x in range(h)] for y in range(w)]
+
+        for i in range(h):
+            for j in range(w):
+                dist = np.sqrt((i - c) ** 2 + (j - r) ** 2)
+                newmask[i][j] = 1/((1+(dist/cutoff))**(2*order))
         
-        return 0
+        return newmask
 
     def get_butterworth_high_pass_filter(self, shape, cutoff, order):
         """Computes a butterworth high pass mask
@@ -96,10 +105,17 @@ class Filtering:
         order: the order of the butterworth filter
         returns a butterworth high pass mask"""
 
-        #Hint: May be one can use the low pass filter function to get a high pass mask
+        w, h = shape
+        c = h / 2
+        r = w / 2
+        newmask = [[0 for x in range(h)] for y in range(w)]
 
-        
-        return 0
+        for i in range(h):
+            for j in range(w):
+                dist = np.sqrt((i - c) ** 2 + (j - r) ** 2)
+                newmask[i][j] = 1/((1+(cutoff/dist))**(2*order))
+
+        return newmask
 
     def get_gaussian_low_pass_filter(self, shape, cutoff):
         """Computes a gaussian low pass mask
@@ -108,8 +124,17 @@ class Filtering:
         cutoff: the cutoff frequency of the gaussian filter (sigma)
         returns a gaussian low pass mask"""
 
-        
-        return 0
+        w, h = shape
+        c = h / 2
+        r = w / 2
+        newmask = [[0 for x in range(h)] for y in range(w)]
+
+        for i in range(h):
+            for j in range(w):
+                dist = np.sqrt((i - c) ** 2 + (j - r) ** 2)
+                newmask[i][j] = np.exp((-1*(dist**2))/(2*(cutoff**2)))
+
+        return newmask
 
     def get_gaussian_high_pass_filter(self, shape, cutoff):
         """Computes a gaussian high pass mask
@@ -118,10 +143,17 @@ class Filtering:
         cutoff: the cutoff frequency of the gaussian filter (sigma)
         returns a gaussian high pass mask"""
 
-        #Hint: May be one can use the low pass filter function to get a high pass mask
+        w, h = shape
+        mask = self.get_gaussian_low_pass_filter(shape, cutoff)
+        newmask = [[0 for x in range(h)] for y in range(w)]
+
+
+        for i in range(h):
+            for j in range(w):
+                newmask[i][j] = 1 - mask[i][j]
 
         
-        return 0
+        return newmask
 
     def post_process_image(self, image):
         """Post process the image to create a full contrast stretch of the image
@@ -134,24 +166,25 @@ class Filtering:
         """
 
         amax = 0
-        amin = 0
+        amin = 100
         w,h = image.shape
 
         fullimage = [[0 for x in range(h)] for y in range (w)]
 
+        image = np.array(image, dtype=np.uint8)
+
         for i in range(h):
             for j in range(w):
                 if image[i][j] < amin:
-                    amin = image[i][j]
+                    amin = int(image[i][j])
                 if image[i][j] > amax:
-                    amax = image[i][j]
-
+                    amax = int(image[i][j])
         for i in range(h):
             for j in range(w):
-                fullimage[i][j] = round(255/(amax-amin)*(image[i][j]-1)+0.5)
-
+                fullimage[i][j] = int(round((255/(amax-amin))*(image[i][j]-amin))+0.5)
 
         u8image = np.array(fullimage, dtype=np.uint8)
+
         return u8image
 
 
@@ -183,8 +216,10 @@ class Filtering:
 
         #get the mask
         arg = str(self.filter)
-        if arg.find("ideal_low") or arg.find("ideal_high") or arg.find("gaussian_low") or arg.find("gaussian_high"):
+        if arg.find("ideal") != -1 or arg.find("gaussian") != -1:
             mask = self.filter(self.image.shape, self.cutoff)
+        if arg.find("butterworth") != -1:
+           mask = self.filter(self.image.shape, self.cutoff, self.order)
 
         #filter image
         filimage = fshift*mask
@@ -194,7 +229,14 @@ class Filtering:
         sfilimage = np.fft.fftshift(filimage)
 
         #compute inverse
-        invimage = np.fft.ifft2(sfilimage)
-        finimage = self.post_process_image(np.absolute(invimage))
+        invimage = np.absolute(np.fft.ifft2(sfilimage))
+        finimage = self.post_process_image(invimage)
+
+        w,h = self.image.shape
+
+        if arg.find("_h") != -1:
+            for i in range(h):
+                for j in range(w):
+                    finimage[i][j] = 255 - finimage[i][j]
 
         return [finimage, mag, mag2]
