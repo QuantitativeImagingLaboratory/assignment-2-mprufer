@@ -24,9 +24,7 @@ class DFT:
                     for j in range(15):
                         asum += matrix[i][j]*((np.cos(((2*np.pi)/15)*(a*i+b*j)))
                                              -(1j*np.sin(((2*np.pi)/15)*(a*i+b*j))))
-                real = float('%.3f'%(asum.real))
-                comp = float('%.3f'%(asum.imag))
-                beta[a][b] = real+comp*1j
+                beta[a][b] = asum
         return beta
 
     def inverse_transform(self, matrix):
@@ -44,9 +42,7 @@ class DFT:
                     for v in range(15):
                         asum+=matrix[u][v]*((np.cos((2*np.pi/15)*(u*i+v*j)))
                                             +(1j*np.sin((2*np.pi/15)*(u*i+v*j))))
-                real = float('%.3f' % (asum.real))
-                comp = float('%.3f' % (asum.imag))
-                beta[i][j] = real+comp*1j
+                beta[i][j] = asum
         return beta
 
 
@@ -65,7 +61,7 @@ class DFT:
                 for i in range(h):
                     for j in range(w):
                         asum += matrix[i][j]*(np.cos(((2 * np.pi)/w)*(a*i+b*j)))
-                beta[a][b] = float('%.3f' % (asum.real))
+                beta[a][b] = asum
 
         return beta
 
@@ -78,5 +74,5 @@ class DFT:
         beta = [[0 for x in range(15)] for y in range(15)]
         for a in range(15):
             for b in range(15):
-                beta[a][b] = abs(matrix[a][b])
+                beta[a][b] = np.absolute(matrix[a][b])
         return beta
