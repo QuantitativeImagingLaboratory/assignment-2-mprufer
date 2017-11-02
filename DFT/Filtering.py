@@ -72,7 +72,7 @@ class Filtering:
 
         for i in range(h):
             for j in range(w):
-                newmask[i][j] = 1 -mask[i][j]
+                newmask[i][j] = 1-mask[i][j]
 
 
         return newmask
@@ -212,7 +212,7 @@ class Filtering:
 
         #shift the fft to center
         fshift = np.fft.fftshift(fwd)
-        mag = self.post_process_image(np.log(np.absolute(fwd)))
+        mag = self.post_process_image(np.log(np.absolute(fwd))) #get dft image
 
         #get the mask
         arg = str(self.filter)
@@ -223,7 +223,7 @@ class Filtering:
 
         #filter image
         filimage = fshift*mask
-        mag2 = mag*mask
+        mag2 = mag*mask #get filtered dft image
 
         #compute inverse shift
         sfilimage = np.fft.fftshift(filimage)
@@ -232,8 +232,8 @@ class Filtering:
         invimage = np.absolute(np.fft.ifft2(sfilimage))
         finimage = self.post_process_image(invimage)
 
-        w,h = self.image.shape
-
+        #take negative of filtered highpass image
+        w, h = self.image.shape
         if arg.find("_h") != -1:
             for i in range(h):
                 for j in range(w):

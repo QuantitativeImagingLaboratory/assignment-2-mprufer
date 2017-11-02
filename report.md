@@ -63,6 +63,9 @@ rather than then cutoff value like in low pass.
 The resulting image for the butterworth low pass filter creates a much
 more smooth blurring effect with no ringing. The high pass filter resulted
 in an image similar to ideal high pass but with less noise.
+Sometimes when performing the mask calculation, a RuntimeWarning:divide
+by zero is encountered but the correct filtered image is still produced
+and the output image saved in the output folder. 
 
 Gaussian Filtering
 ------------------
